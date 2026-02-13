@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NTgGamer1 | Developer & Creator</title>
-    <meta name="description" content="NTgGamer1 - Nikhil Maurya. Developer, creator, and builder blending gaming creativity with software engineering.">
+    <meta name="description"
+        content="NTgGamer1 - Nikhil Maurya. Developer, creator, and builder blending gaming creativity with software engineering.">
     <link rel="stylesheet" href="../Styles/styles.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav role="navigation" aria-label="Main navigation">
@@ -24,10 +27,80 @@
         </div>
     </nav>
 
-    
+    <!-- Main Content -->
+      <main>
+        <!-- Contact Page -->
+        <section class="page active">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Let's Talk</span>
+                    <h2>Get in Touch</h2>
+                    <p>
+                        Interested in collaboration, have a project idea, or just want to chat about tech and gaming? 
+                        I'd love to hear from you. Reachable via email or connect on social media.
+                    </p>
+                </div>
+                
+                <div class="contact-content">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required aria-required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required aria-required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required aria-required="true"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                    
+                    <div id="formConfirmation" class="form-confirmation" role="alert">
+                        <h3>Message Sent!</h3>
+                        <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+                    </div>
+                    
+                    <div class="contact-alt">
+                        <h3>Other Ways to Connect</h3>
+                        <div class="contact-info">
+                            <a href="mailto:nikhil@example.com">your.email@example.com</a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-tagline">© NTgGamer1 — Built by Nikhil Maurya</div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="https://github.com/ntggamer1" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://www.instagram.com/_fitnikhil01/" target="_blank"
+                        rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+
+
 
 
 
     <script src="../JavaScript/script.js"></script>
 </body>
+
 </html>

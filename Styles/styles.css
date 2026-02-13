@@ -434,7 +434,31 @@ p {
     color: var(--color-text-muted);
 }
 
+/* Form Confirmation */
+.form-confirmation {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding: 2rem;
+    background: var(--color-bg-secondary);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 4px;
+    margin-top: 2rem;
+}
 
+.form-confirmation.show {
+    display: block;
+    opacity: 1;
+}
+
+.form-confirmation h3 {
+    margin-bottom: 0.5rem;
+    color: var(--color-accent);
+}
+
+.form-confirmation p {
+    color: var(--color-text-secondary);
+}
 
 /* Projects Grid */
 .filter-bar {
@@ -588,6 +612,76 @@ p {
     color: var(--color-text-muted);
 }
 
+/* Contact Form */
+.contact-content {
+    max-width: 700px;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    transition: var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-text-primary);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-alt {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.contact-alt h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-info a {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.contact-info a:hover {
+    color: var(--color-hover);
+}
 
 
 

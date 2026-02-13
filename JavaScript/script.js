@@ -64,6 +64,26 @@ filterBtns.forEach(btn => {
     });
 });
 
+// Contact form handling
+const contactForm = document.getElementById('contactForm');
+const formConfirmation = document.getElementById('formConfirmation');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        contactForm.style.display = 'none';
+        formConfirmation.classList.add('show');
+        
+        // Reset form after 5 seconds
+        setTimeout(() => {
+            contactForm.reset();
+            contactForm.style.display = 'block';
+            formConfirmation.classList.remove('show');
+        }, 5000);
+    });
+}
+
 
 
 

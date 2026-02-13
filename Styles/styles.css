@@ -544,6 +544,49 @@ p {
     margin-left: 0.75rem;
 }
 
+/* Socials Grid */
+.socials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+}
+
+.social-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-secondary);
+    padding: 2rem;
+    text-align: center;
+    transition: var(--transition-smooth);
+    text-decoration: none;
+    display: block;
+}
+
+.social-card:hover {
+    border-color: var(--color-text-primary);
+    transform: translateY(-5px);
+}
+
+.social-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.social-card h3 {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.social-card .username {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
 
 
 

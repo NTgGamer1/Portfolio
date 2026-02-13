@@ -63,3 +63,27 @@ filterBtns.forEach(btn => {
         });
     });
 });
+
+
+
+
+
+// Smooth hover effects for cards
+const cards = document.querySelectorAll('.highlight-card, .project-card, .experience-card, .social-card');
+
+cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+    });
+});
+
+// Keyboard navigation support
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') {
+        document.body.classList.add('keyboard-nav');
+    }
+});
+
+document.addEventListener('mousedown', () => {
+    document.body.classList.remove('keyboard-nav');
+});

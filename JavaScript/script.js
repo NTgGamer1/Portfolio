@@ -41,3 +41,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Project filtering
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        projectCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                card.style.display = 'flex';
+                card.style.animation = 'fadeIn 0.6s ease';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});

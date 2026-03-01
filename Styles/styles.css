@@ -96,7 +96,7 @@ nav .container {
 
 .nav-brand {
     font-family: var(--font-display);
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
     letter-spacing: 0.05em;
     color: var(--color-text-primary);
     text-decoration: none;
@@ -112,7 +112,7 @@ nav .container {
 
 .nav-links a {
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: clamp(0.7rem, 1.5vw, 0.85rem);
     color: var(--color-text-secondary);
     text-decoration: none;
     text-transform: uppercase;
@@ -155,10 +155,10 @@ nav .container {
 }
 
 .hamburger-line {
-    width: 25px;
+    width: clamp(20px, 5vw, 25px);
     height: 2px;
     background: var(--color-text-primary);
-    margin: 5px 0;
+    margin: clamp(3px, 1vw, 5px) 0;
     transition: var(--transition-smooth);
     border-radius: 2px;
 }
@@ -180,9 +180,9 @@ nav .container {
     background: none;
     border: none;
     color: var(--color-text-primary);
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     cursor: pointer;
-    padding: 0.5rem;
+    padding: clamp(0.4rem, 1vw, 0.5rem);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -327,15 +327,16 @@ h2 {
 
 h3 {
     font-family: var(--font-mono);
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
     margin-bottom: 0.75rem;
     letter-spacing: 0.02em;
 }
 
 p {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
     color: var(--color-text-secondary);
     max-width: 70ch;
+    line-height: 1.6;
 }
 
 /* Hero Section */
@@ -349,19 +350,19 @@ p {
 
 .hero-subtitle {
     font-family: var(--font-mono);
-    font-size: 0.9rem;
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
     color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    margin-bottom: 1rem;
+    margin-bottom: clamp(0.75rem, 2vw, 1rem);
 }
 
 .hero-description {
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
     color: var(--color-text-secondary);
     max-width: 65ch;
     line-height: 1.8;
-    margin-bottom: 2rem;
+    margin-bottom: clamp(1.5rem, 3vw, 2rem);
 }
 
 .cta-buttons {
@@ -372,8 +373,8 @@ p {
 
 .btn {
     font-family: var(--font-mono);
-    padding: 1rem 2.5rem;
-    font-size: 0.85rem;
+    padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     text-decoration: none;
@@ -443,13 +444,13 @@ p {
 }
 
 .highlight-card h3 {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
     margin-bottom: 1rem;
     color: var(--color-text-primary);
 }
 
 .highlight-card p {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
     line-height: 1.6;
 }
 
@@ -461,11 +462,11 @@ p {
 
 .section-label {
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: clamp(0.65rem, 1.5vw, 0.8rem);
     color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    margin-bottom: 1rem;
+    margin-bottom: clamp(0.75rem, 2vw, 1rem);
     display: block;
 }
 
@@ -511,7 +512,7 @@ p {
 
 .timeline-date {
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: clamp(0.7rem, 1.5vw, 0.85rem);
     color: var(--color-text-muted);
     margin-bottom: 0.5rem;
     text-transform: uppercase;
@@ -519,13 +520,13 @@ p {
 }
 
 .timeline-content h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
     margin-bottom: 0.5rem;
 }
 
 .timeline-content .institution {
     font-family: var(--font-mono);
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
     color: var(--color-text-muted);
     margin-bottom: 1rem;
 }
@@ -540,7 +541,7 @@ p {
 
 .achievements h4 {
     font-family: var(--font-mono);
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
     color: var(--color-text-primary);
     margin-bottom: 0.75rem;
     text-transform: uppercase;
@@ -553,7 +554,7 @@ p {
 }
 
 .achievements li {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
     color: var(--color-text-secondary);
     margin-bottom: 0.5rem;
     padding-left: 1.5rem;
@@ -603,8 +604,8 @@ p {
 
 .filter-btn {
     font-family: var(--font-mono);
-    padding: 0.5rem 1.5rem;
-    font-size: 0.75rem;
+    padding: clamp(0.4rem, 1vw, 0.5rem) clamp(1rem, 2vw, 1.5rem);
+    font-size: clamp(0.65rem, 1.2vw, 0.75rem);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     border: 1px solid var(--color-border);
@@ -643,12 +644,12 @@ p {
 }
 
 .project-card h3 {
-    font-size: 1.3rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
     margin-bottom: 1rem;
 }
 
 .project-card .description {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
     color: var(--color-text-secondary);
     margin-bottom: 1.5rem;
     flex-grow: 1;
@@ -663,8 +664,8 @@ p {
 
 .tech-tag {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    padding: 0.25rem 0.75rem;
+    font-size: clamp(0.6rem, 1vw, 0.7rem);
+    padding: clamp(0.2rem, 0.5vw, 0.25rem) clamp(0.5rem, 1vw, 0.75rem);
     background: var(--color-bg-tertiary);
     color: var(--color-text-muted);
     text-transform: uppercase;
@@ -1197,7 +1198,7 @@ footer .container {
 
 .footer-tagline {
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: clamp(0.65rem, 1.2vw, 0.8rem);
     color: var(--color-text-muted);
     letter-spacing: 0.1em;
 }
@@ -1210,7 +1211,7 @@ footer .container {
 
 .footer-links a {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: clamp(0.65rem, 1.2vw, 0.75rem);
     color: var(--color-text-muted);
     text-decoration: none;
     text-transform: uppercase;

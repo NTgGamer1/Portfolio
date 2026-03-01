@@ -173,6 +173,51 @@ cards.forEach(card => {
     });
 });
 
+// Scroll animations with Intersection Observer
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('animate');
+            }, index * 100); // Stagger animation
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observe animatable elements
+document.addEventListener('DOMContentLoaded', () => {
+    const animatableElements = document.querySelectorAll(
+        '.highlight-card, .project-card, .social-card, .timeline-item, .section-header'
+    );
+    
+    animatableElements.forEach(element => {
+        observer.observe(element);
+    });
+});
+
+// Smooth scroll behavior for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
+});
+
 // Keyboard navigation support
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Tab') {

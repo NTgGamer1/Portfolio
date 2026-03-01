@@ -2,6 +2,9 @@
 *.md
 !README.md
 
+# Ignore build/utility scripts
+minify.js
+
 # Ignore node modules
 node_modules/
 

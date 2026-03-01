@@ -21,3 +21,4 @@ Thumbs.db
 # Ignore build/minified files (optional - remove if you want to track them)
 # Styles/styles.min.css
 # JavaScript/script.min.js
+.DS_Store

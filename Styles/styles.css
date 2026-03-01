@@ -140,6 +140,38 @@ nav .container {
     width: 100%;
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 2px;
+    background: var(--color-text-primary);
+    margin: 5px 0;
+    transition: var(--transition-smooth);
+    border-radius: 2px;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
 /* Main Container */
 main {
     position: relative;
@@ -683,8 +715,351 @@ p {
     color: var(--color-hover);
 }
 
+/* Extra Large Screens (1440px and up) */
+@media (min-width: 1441px) {
+    .container {
+        max-width: 1600px;
+        padding: 0 4rem;
+    }
+    
+    .page {
+        padding: 130px 4rem 90px;
+    }
+    
+    h1 {
+        font-size: clamp(3rem, 8vw, 7rem);
+    }
+    
+    h2 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+    }
+    
+    p {
+        font-size: 1.15rem;
+    }
+    
+    .highlights {
+        gap: 4rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 3rem;
+    }
+}
 
+/* Tablet and Large Devices (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .page {
+        padding: 110px 2.5rem 70px;
+    }
+    
+    h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+    }
+    
+    h2 {
+        font-size: clamp(1.8rem, 4.5vw, 3rem);
+    }
+    
+    .highlights {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .socials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .timeline {
+        padding-left: 2.5rem;
+    }
+    
+    .timeline-item::before {
+        left: -3rem;
+    }
+}
 
+/* Small Phones (max-width 480px) */
+@media (max-width: 480px) {
+    nav {
+        padding: 0.75rem 1rem;
+    }
+    
+    nav .container {
+        gap: 1rem;
+    }
+    
+    .nav-brand {
+        font-size: 0.95rem;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--color-bg-secondary);
+        border-top: 1px solid var(--color-border);
+        padding: 1rem 1.5rem;
+        gap: 0;
+        z-index: 100;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        border-bottom: 1px solid var(--color-border);
+        padding: 1rem 0;
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-links a {
+        font-size: 0.8rem;
+        display: block;
+    }
+    
+    .page {
+        padding: 90px 1rem 50px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.8rem;
+    }
+    
+    .hero-description {
+        font-size: 1.05rem;
+    }
+    
+    .cta-buttons {
+        gap: 1rem;
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .highlights {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .socials-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .timeline {
+        padding-left: 1.5rem;
+    }
+    
+    .timeline-item::before {
+        left: -2.25rem;
+    }
+    
+    .timeline-item {
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+    }
+    
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+    
+    .filter-bar {
+        margin-bottom: 2rem;
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.7rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 0.875rem;
+    }
+    
+    .contact-alt {
+        margin-top: 2rem;
+        padding-top: 2rem;
+    }
+    
+    footer {
+        padding: 2rem 1rem;
+        margin-top: 4rem;
+    }
+    
+    footer .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .footer-tagline {
+        font-size: 0.7rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+    }
+    
+    .nav-links a::after {
+        display: none;
+    }
+}
+
+/* Mobile Devices (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    nav {
+        padding: 1rem 1.5rem;
+    }
+    
+    .nav-brand {
+        font-size: 1rem;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--color-bg-secondary);
+        border-top: 1px solid var(--color-border);
+        padding: 1.5rem;
+        gap: 0;
+        z-index: 100;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        border-bottom: 1px solid var(--color-border);
+        padding: 1.2rem 0;
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-links a {
+        font-size: 0.85rem;
+        display: block;
+    }
+    
+    .page {
+        padding: 110px 1.5rem 65px;
+    }
+    
+    h1 {
+        font-size: 2.7rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .highlights {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .socials-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .timeline {
+        padding-left: 2rem;
+    }
+    
+    .timeline-item::before {
+        left: -2.625rem;
+    }
+    
+    .filter-bar {
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 0.45rem 1.25rem;
+        font-size: 0.7rem;
+    }
+    
+    footer .container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .nav-links a::after {
+        display: none;
+    }
+}
 
 /* Footer */
 footer {
@@ -733,15 +1108,43 @@ footer .container {
 /* Responsive */
 @media (max-width: 768px) {
     nav {
-        padding: 1rem 1.5rem;
+        padding: 1rem 1.25rem;
     }
     
     .nav-links {
-        gap: 1.5rem;
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--color-bg-secondary);
+        border-top: 1px solid var(--color-border);
+        padding: 1.5rem;
+        gap: 0;
+        z-index: 100;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        border-bottom: 1px solid var(--color-border);
+        padding: 1rem 0;
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
     }
     
     .nav-links a {
-        font-size: 0.75rem;
+        font-size: 0.85rem;
+        display: block;
+    }
+    
+    .hamburger {
+        display: flex;
     }
     
     .theme-toggle {
@@ -790,5 +1193,13 @@ footer .container {
     footer .container {
         flex-direction: column;
         text-align: center;
+    }
+    
+    nav .container {
+        gap: 1rem;
+    }
+    
+    .nav-links a::after {
+        display: none;
     }
 }

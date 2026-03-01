@@ -1,3 +1,34 @@
+// Hamburger Menu Toggle
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navMenu = document.getElementById('navMenu');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        hamburgerBtn.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+    });
+}
+
+// Close menu when a nav link is clicked
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+    });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('nav')) {
+        hamburgerBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }
+});
+
 // Theme Toggle
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');

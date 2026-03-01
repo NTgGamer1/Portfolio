@@ -89,8 +89,9 @@ nav .container {
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: 1rem;
 }
 
 .nav-brand {
@@ -106,6 +107,7 @@ nav .container {
     display: flex;
     gap: 2.5rem;
     list-style: none;
+    margin-left: auto;
 }
 
 .nav-links a {
@@ -149,6 +151,7 @@ nav .container {
     cursor: pointer;
     padding: 0.5rem;
     z-index: 101;
+    margin-left: auto;
 }
 
 .hamburger-line {
@@ -184,6 +187,7 @@ nav .container {
     align-items: center;
     justify-content: center;
     transition: var(--transition-smooth);
+    flex-shrink: 0;
 }
 
 .theme-toggle:hover {
@@ -900,10 +904,13 @@ p {
     .theme-toggle {
         font-size: 1rem;
         padding: 0.3rem;
+        order: 2;
     }
     
     .hamburger {
         display: flex;
+        margin-left: 0;
+        order: 3;
     }
     
     .nav-links {
@@ -1065,6 +1072,12 @@ p {
     
     .hamburger {
         display: flex;
+        margin-left: 0;
+        order: 3;
+    }
+    
+    .theme-toggle {
+        order: 2;
     }
     
     .nav-links {
@@ -1249,13 +1262,14 @@ footer .container {
     
     .hamburger {
         display: flex;
+        margin-left: 0;
+        order: 3;
     }
     
     .theme-toggle {
-        top: 1rem;
-        right: 1.5rem;
-        padding: 0.5rem 0.75rem;
-        font-size: 0.65rem;
+        order: 2;
+        padding: 0.5rem;
+        font-size: 1.1rem;
     }
     
     .page {

@@ -895,6 +895,114 @@ p {
     }
 }
 
+/* Desktop: Preserve pre-update sizing/layout on large screens */
+@media (min-width: 1025px) {
+    nav .container {
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    .nav-links {
+        margin-left: 0;
+    }
+
+    .nav-item-theme {
+        padding-left: 0;
+        border-left: none;
+    }
+
+    .nav-brand {
+        font-size: 1.1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+    }
+
+    .btn {
+        padding: 1rem 2.5rem;
+        font-size: 0.85rem;
+    }
+
+    .highlight-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .highlight-card p {
+        font-size: 1rem;
+    }
+
+    .section-label {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .timeline-date {
+        font-size: 0.85rem;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .timeline-content .institution {
+        font-size: 0.9rem;
+    }
+
+    .achievements h4 {
+        font-size: 0.9rem;
+    }
+
+    .achievements li {
+        font-size: 1rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.75rem;
+    }
+
+    .project-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .project-card .description {
+        font-size: 1rem;
+    }
+
+    .tech-tag {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.75rem;
+    }
+
+    .footer-tagline {
+        font-size: 0.8rem;
+    }
+
+    .footer-links a {
+        font-size: 0.75rem;
+    }
+}
+
 /* Small Phones (max-width 480px) */
 @media (max-width: 480px) {
     nav {
@@ -1119,7 +1227,6 @@ p {
         padding-top: 1rem;
         margin-top: 1rem;
         border-top: 1px solid var(--color-border);
-    }
     }
     
     .nav-links a {

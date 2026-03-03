@@ -79,18 +79,6 @@ python3 -m http.server 8000
 - **Personal info:** Update contact details in HTML files
 - **Social links:** Edit `socials.html` with your actual social profiles
 
-### 4. (Optional) Setup EmailJS for Contact Form
-The contact form requires EmailJS setup to send real emails:
-1. Create free account at [EmailJS.com](https://www.emailjs.com)
-2. Get your Account ID, Service ID, and Template ID
-3. Update `script.js` with your credentials (lines 94-98)
-   ```javascript
-   emailjs.init('YOUR_PUBLIC_KEY');
-   ```
-4. Test the form on the contact page
-
-**Without EmailJS:** Form still works and shows a confirmation message, but emails won't be sent.
-
 ---
 
 ## 📦 Production (Minified Assets)

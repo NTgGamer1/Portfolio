@@ -1317,3 +1317,35 @@ footer .container {
 .footer-links a:hover {
     color: var(--color-hover);
 }
+
+/* Keep footer mobile overrides after base footer styles */
+@media (max-width: 480px) {
+    footer {
+        padding: 2rem 1rem;
+        margin-top: 4rem;
+    }
+
+    footer .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-tagline {
+        font-size: 0.7rem;
+    }
+
+    .footer-links {
+        display: none;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    footer .container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .footer-links {
+        display: none;
+    }
+}

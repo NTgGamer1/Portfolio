@@ -7,6 +7,7 @@ const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 const contactForm = document.getElementById('contactForm');
 const formConfirmation = document.getElementById('formConfirmation');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const closeNavMenu = () => {
     if (!hamburgerBtn || !navMenu) return;
@@ -96,29 +97,54 @@ if (contactForm && formConfirmation) {
     });
 }
 
-if ('IntersectionObserver' in window) {
+if (!prefersReducedMotion) {
+    document.body.classList.add('motion-ready');
+    document.querySelectorAll('.nav-links .nav-link').forEach((link, index) => {
+        link.style.setProperty('--nav-delay', `${140 + index * 80}ms`);
+    });
+    requestAnimationFrame(() => {
+        document.body.classList.add('motion-entered');
+    });
+}
+
+const applyRevealTargets = () => {
+    const revealGroups = [
+        { selector: '.section-header', variant: 'reveal-left', step: 0 },
+        { selector: '.timeline-item', variant: 'reveal-left', step: 90 },
+        { selector: '.highlight-card', variant: 'reveal-scale', step: 120 },
+        { selector: '.project-card', variant: 'reveal-up', step: 90 },
+        { selector: '.social-card', variant: 'reveal-scale', step: 90 }
+    ];
+
+    revealGroups.forEach(({ selector, variant, step }) => {
+        document.querySelectorAll(selector).forEach((element, index) => {
+            element.classList.add('reveal', variant);
+            element.style.setProperty('--reveal-delay', `${index * step}ms`);
+        });
+    });
+};
+
+if ('IntersectionObserver' in window && !prefersReducedMotion) {
+    applyRevealTargets();
+
     const observer = new IntersectionObserver(
         (entries) => {
-            entries.forEach((entry, index) => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('animate');
-                    }, index * 100);
+                    entry.target.classList.add('animate');
                     observer.unobserve(entry.target);
                 }
             });
         },
         {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -40px 0px'
         }
     );
 
-    document
-        .querySelectorAll('.highlight-card, .project-card, .social-card, .timeline-item, .section-header')
-        .forEach((element) => {
-            observer.observe(element);
-        });
+    document.querySelectorAll('.reveal').forEach((element) => {
+        observer.observe(element);
+    });
 }
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

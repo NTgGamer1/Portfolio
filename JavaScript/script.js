@@ -89,54 +89,10 @@ const showFormConfirmation = () => {
     }, 5000);
 };
 
-const isConfiguredValue = (value) =>
-    typeof value === 'string' && value.trim() !== '' && !value.startsWith('YOUR_');
-
-const isEmailConfigValid = (config) =>
-    config &&
-    isConfiguredValue(config.publicKey) &&
-    isConfiguredValue(config.serviceId) &&
-    isConfiguredValue(config.templateId);
-
 if (contactForm && formConfirmation) {
-    const contactConfig = window.CONTACT_FORM_CONFIG || {};
-    const emailJsAvailable = typeof emailjs !== 'undefined';
-    const emailConfigured = emailJsAvailable && isEmailConfigValid(contactConfig);
-
-    if (emailConfigured) {
-        emailjs.init(contactConfig.publicKey);
-    } else {
-        console.warn('EmailJS config missing or incomplete. Using confirmation fallback.');
-    }
-
-    contactForm.addEventListener('submit', async (e) => {
+    contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-
-        if (!emailConfigured) {
-            showFormConfirmation();
-            return;
-        }
-
-        const formData = {
-            from_name: document.getElementById('name').value,
-            from_email: document.getElementById('email').value,
-            message: document.getElementById('message').value,
-            to_email: contactConfig.toEmail || 'nikhilmaurya.work@icloud.com'
-        };
-
-        try {
-            const response = await emailjs.send(
-                contactConfig.serviceId,
-                contactConfig.templateId,
-                formData
-            );
-            if (response.status === 200) {
-                showFormConfirmation();
-            }
-        } catch (error) {
-            console.error('Error sending email:', error);
-            showFormConfirmation();
-        }
+        showFormConfirmation();
     });
 }
 

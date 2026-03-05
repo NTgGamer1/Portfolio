@@ -15,10 +15,9 @@ Switch between dark and light themes seamlessly. Your preference is saved in bro
 - **How it works:** Click the sun/moon icon in the navigation bar
 
 ### 📧 **Functional Contact Form**
-Send messages directly from the portfolio via integrated email service.
-- **Tech:** EmailJS API for client-side email sending
-- **How it works:** Fill out name, email, and message on the contact page. Form validates input and sends emails instantly
-- **Setup Guide:** See `EMAILJS_SETUP.md` (local only) for configuration
+Collect contact details and show instant submission feedback on the contact page.
+- **Tech:** HTML5 form validation + client-side JavaScript interactions
+- **How it works:** Fill out name, email, and message. The form validates fields and shows confirmation immediately
 
 ### 🎯 **Project Portfolio**
 Showcase 6 real-world projects with descriptions, technologies, and live links.
@@ -178,7 +177,7 @@ Adjust these media queries in `styles.css` to modify responsive behavior:
 ### File Dependencies
 - All HTML files link to `Styles/styles.min.css` and `JavaScript/script.min.js`
 - `script.js` runs on all pages (hamburger menu, theme toggle, animations)
-- `contact.html` additionally loads EmailJS CDN for email capability
+- `contact.html` uses the same site JS for form UI interactions
 - CSS uses @import for modular organization (variables, animations, components)
 
 ### Browser Support
@@ -228,12 +227,11 @@ Built with pure HTML, CSS, and JavaScript—no frameworks!
 **Technologies Used:**
 - [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
 - [CSS Custom Properties (Variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
-- [Fetch API & EmailJS](https://www.emailjs.com/docs/)
+- [HTML Form Validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation)
 - [CSS Grid & Flexbox](https://css-tricks.com)
 - [localStorage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 
 **See Also:**
-- `EMAILJS_SETUP.md` – Complete EmailJS configuration steps
 - `PERFORMANCE.md` – Detailed optimization techniques
 - `DEPLOYMENT.md` – Advanced deployment options
 

@@ -1137,7 +1137,7 @@ p {
     
     footer .container {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
     
     .footer-tagline {

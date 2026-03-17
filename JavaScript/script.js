@@ -8,6 +8,23 @@ const projectCards = document.querySelectorAll('.project-card');
 const contactForm = document.getElementById('contactForm');
 const formConfirmation = document.getElementById('formConfirmation');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealVariants = ['reveal-up', 'reveal-left', 'reveal-scale'];
+
+const finalizeRevealState = (element) => {
+    element.classList.remove('reveal', 'animate', ...revealVariants);
+    element.style.removeProperty('--reveal-delay');
+};
+
+const replayFadeIn = (element) => {
+    if (prefersReducedMotion) {
+        element.style.animation = '';
+        return;
+    }
+
+    element.style.animation = 'none';
+    void element.offsetWidth;
+    element.style.animation = 'fadeIn 0.6s ease';
+};
 
 const closeNavMenu = () => {
     if (!hamburgerBtn || !navMenu) return;
@@ -70,7 +87,9 @@ if (filterBtns.length > 0 && projectCards.length > 0) {
                 const isVisible = filter === 'all' || card.getAttribute('data-category') === filter;
                 card.style.display = isVisible ? 'flex' : 'none';
                 if (isVisible) {
-                    card.style.animation = 'fadeIn 0.6s ease';
+                    replayFadeIn(card);
+                } else {
+                    card.style.animation = '';
                 }
             });
         });
@@ -120,6 +139,10 @@ const applyRevealTargets = () => {
         document.querySelectorAll(selector).forEach((element, index) => {
             element.classList.add('reveal', variant);
             element.style.setProperty('--reveal-delay', `${index * step}ms`);
+            element.addEventListener('animationend', (event) => {
+                if (event.target !== element) return;
+                finalizeRevealState(element);
+            }, { once: true });
         });
     });
 };

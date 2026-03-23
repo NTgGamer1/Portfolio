@@ -7,8 +7,14 @@
     --color-text-secondary: #b8b8b0;
     --color-text-muted: #707068;
     --color-accent: #e8e8e0;
+    --color-accent-contrast: #0a0a0a;
     --color-border: #2a2a2a;
     --color-hover: #ffffff;
+    --color-grain-line: rgba(255, 255, 255, 0.01);
+    --color-nav-surface: rgba(10, 10, 10, 0.95);
+    --shadow-lift: 0 14px 28px rgba(0, 0, 0, 0.25);
+    --shadow-button-rest: 0 0 0 rgba(255, 255, 255, 0);
+    --shadow-button-hover: 0 10px 24px rgba(255, 255, 255, 0.15);
     
     --font-display: 'Courier New', monospace;
     --font-body: 'Georgia', serif;
@@ -60,8 +66,8 @@ body::before {
             0deg,
             transparent,
             transparent 2px,
-            rgba(255, 255, 255, 0.01) 2px,
-            rgba(255, 255, 255, 0.01) 4px
+            var(--color-grain-line) 2px,
+            var(--color-grain-line) 4px
         );
     pointer-events: none;
     z-index: 1;
@@ -74,7 +80,7 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(10, 10, 10, 0.95);
+    background: var(--color-nav-surface);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-border);
     padding: 1.5rem 3rem;
@@ -231,19 +237,25 @@ body.motion-ready.motion-entered .nav-links .nav-link {
 
 /* Light Mode */
 body.light-mode {
-    --color-bg-primary: #ffffff;
-    --color-bg-secondary: #f5f5f5;
-    --color-bg-tertiary: #eeeeee;
-    --color-text-primary: #0a0a0a;
-    --color-text-secondary: #333333;
-    --color-text-muted: #666666;
-    --color-accent: #333333;
-    --color-border: #d0d0d0;
-    --color-hover: #000000;
+    --color-bg-primary: #faf7f2;
+    --color-bg-secondary: #f0ebe0;
+    --color-bg-tertiary: #e6dccd;
+    --color-text-primary: #1e1610;
+    --color-text-secondary: #5a4030;
+    --color-text-muted: #8b7558;
+    --color-accent: #a0845c;
+    --color-accent-contrast: #1e1610;
+    --color-border: #c9b99a;
+    --color-hover: #1e1610;
+    --color-grain-line: rgba(160, 132, 92, 0.045);
+    --color-nav-surface: rgba(250, 247, 242, 0.94);
+    --shadow-lift: 0 16px 32px rgba(90, 64, 48, 0.14);
+    --shadow-button-rest: 0 0 0 rgba(90, 64, 48, 0);
+    --shadow-button-hover: 0 12px 28px rgba(160, 132, 92, 0.24);
 }
 
 body.light-mode nav {
-    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 24px rgba(90, 64, 48, 0.08);
 }
 
 /* Main Container */
@@ -415,7 +427,7 @@ body.motion-ready .highlight-card:hover,
 body.motion-ready .project-card:hover,
 body.motion-ready .social-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--shadow-lift);
 }
 
 body.motion-ready .btn {
@@ -562,7 +574,7 @@ p {
 }
 
 .btn:hover {
-    color: var(--color-bg-primary);
+    color: var(--color-accent-contrast);
     border-color: var(--color-accent);
 }
 
@@ -586,11 +598,11 @@ p {
 }
 
 body.motion-ready .btn-primary {
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    box-shadow: var(--shadow-button-rest);
 }
 
 body.motion-ready .btn-primary:hover {
-    box-shadow: 0 10px 24px rgba(255, 255, 255, 0.15);
+    box-shadow: var(--shadow-button-hover);
 }
 
 /* Highlights Grid */

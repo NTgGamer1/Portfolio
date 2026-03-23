@@ -80,44 +80,6 @@ python3 -m http.server 8000
 
 ---
 
-## 📦 Production (Minified Assets)
-
-The repository includes minified versions for production:
-- `Styles/styles.min.css` (16.7 KB)
-- `JavaScript/script.min.js` (4.8 KB)
-
-**To regenerate minified files:**
-```bash
-node minify.js
-```
-
-**For deployment:** The HTML files are already configured to use `.min.css` and `.min.js` files. Change the links in HTML if needed.
-
----
-
-## 🌐 Deployment Options
-
-### **Vercel (Recommended - Free Tier)**
-1. Push your code to GitHub
-2. Connect repo to [Vercel.com](https://vercel.com)
-3. Deploy automatically on every push
-4. Live at `your-username.vercel.app`
-
-### **Netlify**
-1. Push to GitHub
-2. Connect repo to [Netlify.com](https://www.netlify.com)
-3. Auto-deploys on git push
-4. Free TLS/SSL and custom domain support
-
-### **GitHub Pages**
-```bash
-git push origin main
-```
-- Go to Settings → Pages → Select `main` branch
-- Live at `github.com/username/portfolio`
-
----
-
 ## 🎨 Customization Guide
 
 ### Colors & Typography
@@ -160,41 +122,6 @@ Adjust these media queries in `styles.css` to modify responsive behavior:
 
 ---
 
-## 📊 Performance Metrics
-
-| Metric | Before | After | Reduction |
-|--------|--------|-------|-----------|
-| CSS Size | 23.9 KB | 16.7 KB | 30% |
-| JavaScript | 7.6 KB | 4.8 KB | 36% |
-| **Total** | **31.5 KB** | **21.5 KB** | **32%** |
-| Lighthouse Performance | 87 | 92+ | +5 |
-| Lighthouse Accessibility | 93 | 95+ | +2 |
-
----
-
-## 🔧 Development
-
-### File Dependencies
-- All HTML files link to `Styles/styles.min.css` and `JavaScript/script.min.js`
-- `script.js` runs on all pages (hamburger menu, theme toggle, animations)
-- `contact.html` uses the same site JS for form UI interactions
-- CSS uses @import for modular organization (variables, animations, components)
-
-### Browser Support
-- Modern browsers (Chrome, Firefox, Safari, Edge)
-- Requires ES6+ JavaScript support
-- CSS Grid/Flexbox support required
-- localStorage support required for theme persistence
-
-### Building Locally
-To run the minify script and regenerate minified assets:
-```bash
-npm install minify  # If not already installed
-node minify.js      # Generates .min.css and .min.js
-```
-
----
-
 ## 🤝 Contributing
 
 Have suggestions or found a bug? Feel free to:
@@ -209,41 +136,6 @@ Have suggestions or found a bug? Feel free to:
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
-
----
-
-## 📧 Contact & Social
-
-- **GitHub:** [@NTgGamer1](https://github.com/NTgGamer1)
-- **Portfolio:** [ntg-portfolio.vercel.app](https://ntg-portfolio.vercel.app)
-- **Message:** Use the contact form on the portfolio site
-
----
-
-## 🎓 Learning Resources
-
-Built with pure HTML, CSS, and JavaScript—no frameworks!
-
-**Technologies Used:**
-- [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
-- [CSS Custom Properties (Variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
-- [HTML Form Validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation)
-- [CSS Grid & Flexbox](https://css-tricks.com)
-- [localStorage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
-
-**See Also:**
-- `PERFORMANCE.md` – Detailed optimization techniques
-- `DEPLOYMENT.md` – Advanced deployment options
-
----
-
-**Last Updated:** 2024  
-**Status:** ✅ Production Ready
-2. Go to https://vercel.com  
-3. Import the GitHub repo  
-4. Set **Framework Preset: Other**  
-5. Set **Root Directory** to project root  
-6. Deploy 🎯
 
 ---
 

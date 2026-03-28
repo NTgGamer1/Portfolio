@@ -1023,11 +1023,6 @@ body.motion-ready .btn-primary:hover {
     display: block;
 }
 
-.form-status.is-success {
-    color: var(--color-text-primary);
-    border-left-color: var(--color-accent);
-}
-
 .form-status.is-error {
     color: #ffddd2;
     border-left-color: #d65252;

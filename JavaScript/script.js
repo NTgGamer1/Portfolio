@@ -103,13 +103,13 @@ const setFormStatus = (message = '', state = '') => {
     if (!formStatus) return;
 
     formStatus.textContent = message;
-    formStatus.classList.remove('show', 'is-success', 'is-error');
+    formStatus.classList.remove('show', 'is-error');
 
     if (!message) return;
 
     formStatus.classList.add('show');
-    if (state) {
-        formStatus.classList.add(state === 'success' ? 'is-success' : 'is-error');
+    if (state === 'error') {
+        formStatus.classList.add('is-error');
     }
 };
 
@@ -158,7 +158,7 @@ if (contactForm) {
 
             const result = await response.json();
 
-            if (!response.ok) {
+            if (!response.ok || result.success === false) {
                 throw new Error(result.message || 'Unable to send your message right now.');
             }
 
@@ -168,7 +168,10 @@ if (contactForm) {
                 formConfirmation.classList.add('show');
             }
         } catch (error) {
-            setFormStatus(error.message || 'Something went wrong. Please try again.', 'error');
+            const errorMessage = error instanceof Error
+                ? error.message
+                : 'Something went wrong. Please try again.';
+            setFormStatus(errorMessage, 'error');
         } finally {
             toggleContactFormLoading(false);
         }

@@ -12,13 +12,133 @@ const minifyCSS = (css) => {
     .trim();
 };
 
+const isWhitespace = (char) => /\s/.test(char);
+const isWordChar = (char = '') => /[A-Za-z0-9_$]/.test(char);
+
 const minifyJS = (js) => {
-  return js
-    .replace(/\/\/.*$/gm, '') // Remove single-line comments
-    .replace(/\/\*[\s\S]*?\*\//g, '') // Remove multi-line comments
-    .replace(/\s+/g, ' ') // Collapse whitespace
-    .replace(/\s*([{}:;,=()[\]>+<])\s*/g, '$1') // Remove spaces around syntax
-    .trim();
+  let output = '';
+  let index = 0;
+  let state = 'normal';
+
+  while (index < js.length) {
+    const char = js[index];
+    const next = js[index + 1];
+
+    if (state === 'lineComment') {
+      if (char === '\n') {
+        state = 'normal';
+      }
+      index += 1;
+      continue;
+    }
+
+    if (state === 'blockComment') {
+      if (char === '*' && next === '/') {
+        state = 'normal';
+        index += 2;
+        continue;
+      }
+      index += 1;
+      continue;
+    }
+
+    if (state === 'singleQuote') {
+      output += char;
+      if (char === '\\' && next) {
+        output += next;
+        index += 2;
+        continue;
+      }
+      if (char === "'") {
+        state = 'normal';
+      }
+      index += 1;
+      continue;
+    }
+
+    if (state === 'doubleQuote') {
+      output += char;
+      if (char === '\\' && next) {
+        output += next;
+        index += 2;
+        continue;
+      }
+      if (char === '"') {
+        state = 'normal';
+      }
+      index += 1;
+      continue;
+    }
+
+    if (state === 'template') {
+      output += char;
+      if (char === '\\' && next) {
+        output += next;
+        index += 2;
+        continue;
+      }
+      if (char === '`') {
+        state = 'normal';
+      }
+      index += 1;
+      continue;
+    }
+
+    if (char === '/' && next === '/') {
+      state = 'lineComment';
+      index += 2;
+      continue;
+    }
+
+    if (char === '/' && next === '*') {
+      state = 'blockComment';
+      index += 2;
+      continue;
+    }
+
+    if (char === "'") {
+      state = 'singleQuote';
+      output += char;
+      index += 1;
+      continue;
+    }
+
+    if (char === '"') {
+      state = 'doubleQuote';
+      output += char;
+      index += 1;
+      continue;
+    }
+
+    if (char === '`') {
+      state = 'template';
+      output += char;
+      index += 1;
+      continue;
+    }
+
+    if (isWhitespace(char)) {
+      let lookahead = index;
+      while (lookahead < js.length && isWhitespace(js[lookahead])) {
+        lookahead += 1;
+      }
+
+      const previousChar = output[output.length - 1];
+      const nextChar = js[lookahead];
+
+      if (isWordChar(previousChar) && isWordChar(nextChar)) {
+        output += ' ';
+      }
+
+      index = lookahead;
+      continue;
+    }
+
+    output += char;
+    index += 1;
+  }
+
+  return output.trim();
 };
 
 try {

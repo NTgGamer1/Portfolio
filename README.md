@@ -1,172 +1,100 @@
-# NTgGamer1 – Personal Portfolio 🚀
+# NTgGamer1 Portfolio
 
-Welcome to my personal portfolio repository! Which is completely made with AI Tools And a little bit of my hardwork. This project showcases my identity as **NTgGamer1** — blending gaming creativity with real-world software development.
+Personal portfolio website for Nikhil Maurya, built with vanilla HTML, CSS, and JavaScript and deployed on Vercel.
 
-🔗 **Live Site:** https://ntg-portfolio.vercel.app  
-📂 **Repo:** https://github.com/NTgGamer1/Portfolio
+Live site: `https://ntg-portfolio.vercel.app`
 
----
+## Overview
 
-## ✨ Key Features
+This project is a multi-page portfolio site that highlights personal work, background, social links, and a contact page.  
+It is designed to stay lightweight, fast, and easy to edit without any frontend framework.
 
-### 🎨 **Dark/Light Mode Toggle**
-Switch between dark and light themes seamlessly. Your preference is saved in browser storage and persists across sessions.
-- **Tech:** CSS custom properties, localStorage API
-- **How it works:** Click the sun/moon icon in the navigation bar
+## Tech Stack
 
-### 📧 **Functional Contact Form**
-Collect contact details and show instant submission feedback on the contact page.
-- **Tech:** HTML5 form validation + client-side JavaScript interactions
-- **How it works:** Fill out name, email, and message. The form validates fields and shows confirmation immediately
+- HTML5
+- CSS3
+- JavaScript
+- Vercel for deployment
+- Web3Forms for contact form submissions
 
-### 🎯 **Project Portfolio**
-Showcase 6 real-world projects with descriptions, technologies, and live links.
-- **Tech:** HTML5 semantic structure, CSS Grid/Flexbox, JavaScript filtering
-- **Features:** Filter by category (Web, Automation, Experiments, Games), view tech stacks, access GitHub/demo links
-- **Easy to extend:** Add new projects in `projects.html` with category tags
+## Main Features
 
-### ✨ **Smooth Scroll Animations**
-Elements animate into view as you scroll the page for enhanced visual appeal.
-- **Tech:** Intersection Observer API, CSS animations (@keyframes)
-- **Animations:** slideInUp, slideInLeft, slideInRight, scaleIn with staggered timing
-- **Performance:** Zero janky scroll listeners—uses modern browser APIs
+- Responsive multi-page layout
+- Dark and light theme toggle
+- Animated page sections and reveal effects
+- Project showcase with filtering
+- Social links page
+- Working contact form with loading, success, and error states
 
-### 📱 **Fully Responsive Design**
-Perfect display on all devices—from 320px phones to 4K monitors.
-- **Breakpoints:**
-  - 1441px+ – Extra large desktops
-  - 1025–1440px – Large desktops
-  - 769–1024px – Tablets
-  - 481–768px – Mobile (landscape & large phones)
-  - ≤480px – Small phones
-- **Features:** Hamburger navigation menu on mobile, hidden footer links on tablets/phones, adaptive font sizes
-- **Mobile-first approach:** Navigation menu button (≡) appears at 768px and below
+## Project Structure
 
-### ⚡ **Performance Optimized**
-Fast load times with minified and optimized assets.
-- **Reductions:** CSS -30%, JavaScript -36%, total -32% (31.5KB → 21.5KB)
-- **Files:** `styles.min.css` and `script.min.js` used in production
-- **Lighthouse scores:** Performance 90+, Accessibility 95+
----
-
-## 🚀 Getting Started (Local Setup)
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/NTgGamer1/Portfolio.git
-cd Portfolio
+```text
+Portfolio/
+├── index.html
+├── about.html
+├── projects.html
+├── socials.html
+├── contact.html
+├── README.md
+├── Assets/
+├── Styles/
+│   ├── styles.css
+│   └── styles.min.css
+└── JavaScript/
+    ├── script.js
+    └── script.min.js
 ```
 
-### 2. Open in Browser
-**Option A: Direct (simplest)**
-- Open `index.html` directly in your browser
+## Running Locally
 
-**Option B: Local Server (recommended)**
+You can open the HTML files directly, but using a local server is better.
+
+Example:
+
 ```bash
-# Using Node.js http-server
-npx http-server
-
-# Or using Python
 python3 -m http.server 8000
-
-# Or using VS Code Live Server extension
 ```
 
-### 3. Customize the Portfolio
-- **Update projects:** Edit `projects.html` to add/remove projects
-- **Change colors:** Edit CSS variables in `Styles/styles.css` (lines 1-30)
-- **Personal info:** Update contact details in HTML files
-- **Social links:** Edit `socials.html` with your actual social profiles
+Then open:
 
----
-
-## 🎨 Customization Guide
-
-### Colors & Typography
-All colors and fonts defined in CSS variables (easily customizable):
-```css
-/* Edit these in styles.css */
-:root {
-  --primary: #1a1a1a;      /* Dark background */
-  --text: #ffffff;          /* Light text */
-  --accent: #ff6b6b;        /* Highlight color */
-  --font-family: 'Inter', sans-serif;
-}
+```text
+http://localhost:8000
 ```
 
-### Add New Projects
-In `projects.html`, add a new project card:
+## Editing the Site
+
+- Update page content in the root HTML files
+- Update styles in `Styles/styles.css`
+- Update interactions in `JavaScript/script.js`
+- Production pages currently load `styles.min.css` and `script.min.js`
+
+## Contact Form Setup
+
+The contact form uses Web3Forms.
+
+1. Create a Web3Forms access key
+2. Open `contact.html`
+3. Replace the placeholder below with your real key:
+
 ```html
-<article class="project-card" data-category="web">
-  <h3>Your Project Title</h3>
-  <p>Short description</p>
-  <div class="tech-stack">
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>JavaScript</span>
-  </div>
-  <div class="project-links">
-    <a href="https://github.com/..." class="btn">GitHub</a>
-    <a href="https://..." class="btn">Live Demo</a>
-  </div>
-</article>
+<input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
 ```
 
-### Responsive Breakpoints
-Adjust these media queries in `styles.css` to modify responsive behavior:
-- **≤480px** – Extra-small phones
-- **481–768px** – Mobile phones &amp; tablets
-- **769–1024px** – Tablet landscape
-- **1025–1440px** – Desktop
-- **1441px+** – Extra-large monitors
+Other form settings such as `subject`, `from_name`, and `replyto` are already configured in `contact.html`.
 
----
+## Deployment
 
-## 🤝 Contributing
+This project is intended for Vercel deployment.
 
-Have suggestions or found a bug? Feel free to:
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/improvement`)
-3. Commit your changes (`git commit -m 'Add improvement'`)
-4. Push to the branch (`git push origin feature/improvement`)
-5. Open a Pull Request
+Basic flow:
 
----
+1. Push the repository to GitHub
+2. Import the repository into Vercel
+3. Deploy
+4. Test the contact form on the live site
 
-## 📄 License
+## Notes
 
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-## 🧩 Roadmap / Future Enhancements
-
-- [ ] Blog/Notes section for learning logs
-- [ ] Resume download button
-
----
-
-## 👤 About Me
-
-**Nikhil (NTgGamer1)**  
-Developer | Tech Explorer | Gamer turned Builder  
-
-> I use the NTgGamer1 identity across platforms as a long-term personal brand.
-
----
-
-## 🤝 Contributing
-
-This is a personal project, but suggestions and improvements are welcome.  
-Feel free to open an issue or PR.
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License**.  
-You’re free to use the structure/design with attribution.
-
----
-
-⭐ If you like this portfolio concept, consider starring the repo!
+- No framework or build system is required
+- The site is easy to customize for content, colors, and projects
+- If you change source CSS or JS, make sure the minified files stay in sync with production

@@ -5,9 +5,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NTgGamer1 | Developer & Creator</title>
+    <title>NTgGamer1 | Contact</title>
     <meta name="description"
-        content="NTgGamer1 - Nikhil Maurya. Developer, creator, and builder blending gaming creativity with software engineering.">
+        content="Send a message to Nikhil Maurya through the portfolio contact form or connect directly by email and social links.">
     <link rel="shortcut icon" href="/Assets/android-chrome-192x192.png" type="image/x-icon">
     <link rel="stylesheet" href="/Styles/styles.min.css">
     <script>
@@ -50,36 +50,49 @@
                     <span class="section-label">Let's Talk</span>
                     <h2>Get in Touch</h2>
                     <p>
-                        Interested in collaboration, have a project idea, or just want to chat about tech and gaming? 
-                        I'd love to hear from you. Reachable via email or connect on social media.
+                        Interested in collaboration, have a project idea, or just want to chat about tech and gaming?
+                        Send a message here and it will land directly in my inbox.
                     </p>
                 </div>
-                
+
                 <div class="contact-content">
                     <form id="contactForm" class="contact-form">
+                        <input type="hidden" name="access_key" value="3ec3e3fe-ca43-4170-b628-b3134fdc6bf5">
+                        <input type="hidden" name="subject" value="New Message from NTgGamer1 Portfolio">
+                        <input type="hidden" name="from_name" value="NTgGamer1 Portfolio">
+                        <input type="hidden" name="replyto" value="email">
+                        <input type="checkbox" name="botcheck" class="form-botcheck" tabindex="-1" autocomplete="off">
+
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required aria-required="true">
+                            <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required aria-required="true">
+                            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" required aria-required="true"></textarea>
+                            <textarea id="message" name="message" placeholder="Tell me a bit about your project or idea." required></textarea>
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+
+                        <button type="submit" class="btn btn-primary contact-submit" id="contactSubmitBtn">
+                            <span class="contact-submit-label">Send Message</span>
+                            <span class="contact-submit-loading">Sending...</span>
+                        </button>
+
+                        <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
                     </form>
-                    
-                    <div id="formConfirmation" class="form-confirmation" role="alert">
+
+                    <div id="formConfirmation" class="form-confirmation" role="alert" aria-live="polite">
                         <h3>Thanks for Reaching Out</h3>
-                        <p>Please email me directly at nikhilmaurya.work@icloud.com for a guaranteed reply.</p>
+                        <p>
+                            Your message was sent successfully. I'll get back to you soon.
+                        </p>
                     </div>
-                    
+
                     <div class="contact-alt">
                         <h3>Other Ways to Connect</h3>
                         <div class="contact-info">

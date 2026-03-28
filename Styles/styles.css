@@ -933,6 +933,17 @@ body.motion-ready .btn-primary:hover {
     max-width: 700px;
 }
 
+.contact-form {
+    display: block;
+}
+
+.form-botcheck {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
+}
+
 .form-group {
     margin-bottom: 2rem;
 }
@@ -968,6 +979,53 @@ body.motion-ready .btn-primary:hover {
 .form-group textarea {
     min-height: 150px;
     resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--color-text-muted);
+}
+
+.contact-submit {
+    position: relative;
+}
+
+.contact-submit:disabled {
+    cursor: wait;
+    opacity: 0.8;
+}
+
+.contact-submit-loading {
+    display: none;
+}
+
+.contact-submit.is-loading .contact-submit-label {
+    display: none;
+}
+
+.contact-submit.is-loading .contact-submit-loading {
+    display: inline;
+}
+
+.form-status {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    border-left: 4px solid transparent;
+    background: var(--color-bg-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.form-status.show {
+    display: block;
+}
+
+.form-status.is-error {
+    color: #ffddd2;
+    border-left-color: #d65252;
 }
 
 .contact-alt {

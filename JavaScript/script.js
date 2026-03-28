@@ -1,3 +1,4 @@
+const navBar = document.querySelector('nav');
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-links a');
@@ -12,6 +13,10 @@ const contactSubmitBtn = document.getElementById('contactSubmitBtn');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealVariants = ['reveal-up', 'reveal-left', 'reveal-scale'];
 const web3FormsEndpoint = 'https://api.web3forms.com/submit';
+const mobileNavBreakpoint = 768;
+let navOverlay;
+
+const isMobileViewport = () => window.innerWidth <= mobileNavBreakpoint;
 
 const finalizeRevealState = (element) => {
     element.classList.remove('reveal', 'animate', ...revealVariants);
@@ -29,29 +34,108 @@ const replayFadeIn = (element) => {
     element.style.animation = 'fadeIn 0.6s ease';
 };
 
-const closeNavMenu = () => {
+const syncMobileNavOffset = () => {
+    if (!navBar) return;
+
+    const navBottom = navBar.getBoundingClientRect().bottom;
+    const offset = Math.max(Math.round(navBottom + 10), 72);
+    document.documentElement.style.setProperty('--mobile-nav-top', `${offset}px`);
+};
+
+const syncNavAccessibility = () => {
     if (!hamburgerBtn || !navMenu) return;
-    hamburgerBtn.classList.remove('active');
-    navMenu.classList.remove('active');
-    hamburgerBtn.setAttribute('aria-expanded', 'false');
+
+    const isOpen = navMenu.classList.contains('active');
+    hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+};
+
+const setMenuState = (shouldOpen) => {
+    if (!hamburgerBtn || !navMenu) return;
+
+    const isOpen = shouldOpen && isMobileViewport();
+    hamburgerBtn.classList.toggle('active', isOpen);
+    navMenu.classList.toggle('active', isOpen);
+    document.body.classList.toggle('nav-open', isOpen);
+    syncNavAccessibility();
+};
+
+const closeNavMenu = () => {
+    setMenuState(false);
+};
+
+const ensureNavOverlay = () => {
+    if (navOverlay || !document.body) return;
+
+    navOverlay = document.createElement('button');
+    navOverlay.type = 'button';
+    navOverlay.className = 'nav-overlay';
+    navOverlay.setAttribute('aria-label', 'Close navigation menu');
+    navOverlay.setAttribute('aria-hidden', 'true');
+    navOverlay.setAttribute('tabindex', '-1');
+    document.body.appendChild(navOverlay);
+    navOverlay.addEventListener('click', closeNavMenu);
+};
+
+const updateActiveNavLinks = () => {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+    navLinks.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        const isActive = href === currentPage;
+        link.classList.toggle('active', isActive);
+    });
 };
 
 if (hamburgerBtn && navMenu) {
+    ensureNavOverlay();
+    syncMobileNavOffset();
+    syncNavAccessibility();
+
     hamburgerBtn.addEventListener('click', () => {
-        hamburgerBtn.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        hamburgerBtn.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+        syncMobileNavOffset();
+        setMenuState(!navMenu.classList.contains('active'));
     });
 
     navLinks.forEach((link) => {
-        link.addEventListener('click', closeNavMenu);
+        link.addEventListener('click', () => {
+            if (isMobileViewport()) {
+                closeNavMenu();
+            }
+        });
     });
 
     document.addEventListener('click', (e) => {
+        if (!navMenu.classList.contains('active') || !isMobileViewport()) return;
+
         if (!e.target.closest('nav')) {
             closeNavMenu();
         }
     });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeNavMenu();
+        }
+    });
+
+    const handleViewportChange = () => {
+        syncMobileNavOffset();
+
+        if (!isMobileViewport()) {
+            closeNavMenu();
+            return;
+        }
+
+        syncNavAccessibility();
+    };
+
+    window.addEventListener('resize', handleViewportChange);
+    window.addEventListener('orientationchange', handleViewportChange);
+
+    if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', syncMobileNavOffset);
+        window.visualViewport.addEventListener('scroll', syncMobileNavOffset);
+    }
 }
 
 const currentTheme = localStorage.getItem('theme') || 'dark-mode';
@@ -72,11 +156,7 @@ if (themeToggle) {
     });
 }
 
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.nav-link').forEach((link) => {
-    const href = link.getAttribute('href');
-    link.classList.toggle('active', href === currentPage);
-});
+updateActiveNavLinks();
 
 if (filterBtns.length > 0 && projectCards.length > 0) {
     filterBtns.forEach((btn) => {

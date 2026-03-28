@@ -7,8 +7,11 @@ const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 const contactForm = document.getElementById('contactForm');
 const formConfirmation = document.getElementById('formConfirmation');
+const formStatus = document.getElementById('formStatus');
+const contactSubmitBtn = document.getElementById('contactSubmitBtn');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealVariants = ['reveal-up', 'reveal-left', 'reveal-scale'];
+const web3FormsEndpoint = 'https://api.web3forms.com/submit';
 
 const finalizeRevealState = (element) => {
     element.classList.remove('reveal', 'animate', ...revealVariants);
@@ -96,23 +99,79 @@ if (filterBtns.length > 0 && projectCards.length > 0) {
     });
 }
 
-const showFormConfirmation = () => {
-    if (!contactForm || !formConfirmation) return;
+const setFormStatus = (message = '', state = '') => {
+    if (!formStatus) return;
 
-    contactForm.style.display = 'none';
-    formConfirmation.classList.add('show');
+    formStatus.textContent = message;
+    formStatus.classList.remove('show', 'is-success', 'is-error');
 
-    setTimeout(() => {
-        contactForm.reset();
-        contactForm.style.display = 'block';
-        formConfirmation.classList.remove('show');
-    }, 5000);
+    if (!message) return;
+
+    formStatus.classList.add('show');
+    if (state) {
+        formStatus.classList.add(state === 'success' ? 'is-success' : 'is-error');
+    }
 };
 
-if (contactForm && formConfirmation) {
-    contactForm.addEventListener('submit', (e) => {
+const toggleContactFormLoading = (isLoading) => {
+    if (!contactSubmitBtn) return;
+
+    contactSubmitBtn.disabled = isLoading;
+    contactSubmitBtn.classList.toggle('is-loading', isLoading);
+    contactSubmitBtn.setAttribute('aria-busy', String(isLoading));
+};
+
+const hideFormConfirmation = () => {
+    if (!formConfirmation) return;
+    formConfirmation.classList.remove('show');
+};
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        showFormConfirmation();
+
+        const accessKeyField = contactForm.elements.access_key;
+        const accessKey = typeof accessKeyField?.value === 'string' ? accessKeyField.value.trim() : '';
+
+        hideFormConfirmation();
+        setFormStatus();
+
+        if (!accessKey || accessKey.includes('YOUR_WEB3FORMS_ACCESS_KEY')) {
+            setFormStatus('Add your real Web3Forms access key before using the live form.', 'error');
+            return;
+        }
+
+        toggleContactFormLoading(true);
+
+        try {
+            const formData = new FormData(contactForm);
+            const payload = Object.fromEntries(formData.entries());
+
+            const response = await fetch(web3FormsEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.message || 'Unable to send your message right now.');
+            }
+
+            contactForm.reset();
+            setFormStatus();
+            if (formConfirmation) {
+                formConfirmation.classList.add('show');
+            }
+        } catch (error) {
+            setFormStatus(error.message || 'Something went wrong. Please try again.', 'error');
+        } finally {
+            toggleContactFormLoading(false);
+        }
     });
 }
 

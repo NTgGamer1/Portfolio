@@ -5,7 +5,7 @@
     --color-bg-tertiary: #1c1c1c;
     --color-text-primary: #f5f5f0;
     --color-text-secondary: #b8b8b0;
-    --color-text-muted: #707068;
+    --color-text-muted: #9ca3af;
     --color-accent: #e8e8e0;
     --color-accent-contrast: #0a0a0a;
     --color-border: #2a2a2a;
@@ -707,7 +707,7 @@ body.motion-ready .btn-primary:hover {
     transform: translateY(-5px);
 }
 
-.highlight-card h3 {
+.highlight-card h2, .highlight-card h3 {
     font-size: clamp(0.95rem, 2.5vw, 1.1rem);
     margin-bottom: 1rem;
     color: var(--color-text-primary);
@@ -783,7 +783,7 @@ body.motion-ready .btn-primary:hover {
     letter-spacing: 0.1em;
 }
 
-.timeline-content h3 {
+.timeline-content h2, .timeline-content h3 {
     font-size: clamp(1.1rem, 3vw, 1.5rem);
     margin-bottom: 0.5rem;
 }
@@ -849,7 +849,7 @@ body.motion-ready .btn-primary:hover {
     opacity: 1;
 }
 
-.form-confirmation h3 {
+.form-confirmation h2, .form-confirmation h3 {
     margin-bottom: 0.5rem;
     color: var(--color-accent);
 }
@@ -907,7 +907,7 @@ body.motion-ready .btn-primary:hover {
     transform: translateY(-5px);
 }
 
-.project-card h3 {
+.project-card h2, .project-card h3 {
     font-size: clamp(1.1rem, 2.5vw, 1.3rem);
     margin-bottom: 1rem;
 }
@@ -1014,7 +1014,7 @@ body.motion-ready .btn-primary:hover {
     display: block;
 }
 
-.social-card h3 {
+.social-card h2, .social-card h3 {
     font-family: var(--font-mono);
     font-size: 0.85rem;
     color: var(--color-text-primary);
@@ -1135,7 +1135,7 @@ body.motion-ready .btn-primary:hover {
     border-top: 1px solid var(--color-border);
 }
 
-.contact-alt h3 {
+.contact-alt h2, .contact-alt h3 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
 }
@@ -1277,7 +1277,7 @@ body.motion-ready .btn-primary:hover {
         font-size: 0.85rem;
     }
 
-    .highlight-card h3 {
+    .highlight-card h2, .highlight-card h3 {
         font-size: 1.1rem;
     }
 
@@ -1294,7 +1294,7 @@ body.motion-ready .btn-primary:hover {
         font-size: 0.85rem;
     }
 
-    .timeline-content h3 {
+    .timeline-content h2, .timeline-content h3 {
         font-size: 1.5rem;
     }
 
@@ -1315,7 +1315,7 @@ body.motion-ready .btn-primary:hover {
         font-size: 0.75rem;
     }
 
-    .project-card h3 {
+    .project-card h2, .project-card h3 {
         font-size: 1.3rem;
     }
 

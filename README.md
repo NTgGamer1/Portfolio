@@ -1,53 +1,94 @@
 # NTgGamer1 Portfolio
 
-Personal portfolio website for Nikhil Maurya, built with vanilla HTML, CSS, and JavaScript and deployed on Vercel.
+A modern, responsive portfolio website showcasing the journey from gaming roots to software development. Built with vanilla technologies to stay lightweight and fast.
 
-Live site: `https://ntg-portfolio.vercel.app`
+**Live Site:** [ntg-portfolio.vercel.app](https://ntg-portfolio.vercel.app)
 
-## Overview
+## About
 
-This project is a multi-page portfolio site that highlights personal work, background, social links, and a contact page.  
-It is designed to stay lightweight, fast, and easy to edit without any frontend framework.
+This portfolio represents my evolution from NTgGamer to NTgGamer1 — a builder who blends gaming creativity with engineering precision. It features a clean, minimal design that highlights projects, skills, and the continuous pursuit of growth in technology.
+
+## Features
+
+- **Responsive Design**: Optimized for all devices with smooth animations
+- **Dark/Light Theme Toggle**: Seamless theme switching with local storage persistence
+- **Project Showcase**: Interactive filtering system for web apps, automation tools, experiments, and games
+- **Contact Integration**: Working contact form powered by Web3Forms
+- **Performance Focused**: Lightweight vanilla implementation, no heavy frameworks
 
 ## Tech Stack
 
-- HTML5
-- CSS3
-- JavaScript
-- Vercel for deployment
-- Web3Forms for contact form submissions
-
-## Main Features
-
-- Responsive multi-page layout
-- Dark and light theme toggle
-- Animated page sections and reveal effects
-- Project showcase with filtering
-- Social links page
-- Working contact form with loading, success, and error states
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Deployment**: Vercel
+- **Contact**: Web3Forms API
+- **Version Control**: Git
 
 ## Project Structure
 
-```text
+```
 Portfolio/
-├── index.html
-├── about.html
-├── projects.html
-├── socials.html
-├── contact.html
-├── README.md
-├── Assets/
+├── index.html          # Homepage with hero and highlights
+├── about.html          # Personal journey and skills
+├── projects.html       # Project showcase with filtering
+├── contact.html        # Contact form and social links
+├── README.md           # This file
+├── Assets/             # Images and icons
 ├── Styles/
-│   ├── styles.css
-│   └── styles.min.css
+│   ├── styles.css      # Main stylesheet
+│   └── styles.min.css  # Minified version
 └── JavaScript/
-    ├── script.js
-    └── script.min.js
+    ├── script.js       # Main functionality
+    └── script.min.js   # Minified version
 ```
 
-## Running Locally
+## Getting Started
 
-You can open the HTML files directly, but using a local server is better.
+### Prerequisites
+- Modern web browser
+- Git (for cloning)
+
+### Local Development
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/NTgGamer1/Portfolio.git
+   cd Portfolio
+   ```
+
+2. **Run locally**
+   - Open `index.html` in your browser
+   - For better experience, use a local server:
+     ```bash
+     # Using Python
+     python -m http.server 8000
+
+     # Using Node.js
+     npx serve .
+     ```
+
+## Projects Featured
+
+- **Portfolio Website**: This site - responsive design with theme toggle
+- **Task Manager App**: Productivity tool with local storage
+- **Web Scraper Tool**: Python automation for data collection
+- **AI Chatbot Experiment**: Conversational AI exploration
+- **2048 Game Clone**: Classic puzzle game with touch controls
+- **Weather Dashboard**: Real-time weather with API integration
+- **CLI Password Manager**: Secure credential management tool
+
+## Philosophy
+
+Built to demonstrate real skills and genuine projects, not just templates. Every line of code serves a purpose, every feature solves a problem. This portfolio is a living proof-of-work that evolves with my journey as a developer.
+
+## Connect
+
+- **GitHub**: [@NTgGamer1](https://github.com/NTgGamer1)
+- **Instagram**: [@ntg.builds](https://www.instagram.com/ntg.builds)
+- **Live Site**: [ntg-portfolio.vercel.app](https://ntg-portfolio.vercel.app)
+
+---
+
+**Built by Nikhil Maurya** | From gaming to building real-world tech
 
 Example:
 

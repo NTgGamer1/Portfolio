@@ -1,26 +1,32 @@
 import { prisma } from "../config/database";
 
 export async function getAllProjects() {
-  // Retrieve all projects from Prisma
-  return [];
+  return prisma.project.findMany({ orderBy: { order: "asc" } });
 }
 
 export async function getProjectById(id: string) {
-  // Retrieve a single project by id from Prisma
-  return null;
+  return prisma.project.findUnique({ where: { id } });
+}
+
+export async function getProjectBySlug(slug: string) {
+  return prisma.project.findUnique({ where: { slug } });
 }
 
 export async function createProjectRecord(data: any) {
-  // Insert a project record into the database
-  return null;
+  return prisma.project.create({ data });
 }
 
 export async function updateProjectRecord(id: string, data: any) {
-  // Update a project record in the database
-  return null;
+  return prisma.project.update({ where: { id }, data });
 }
 
 export async function deleteProjectRecord(id: string) {
-  // Delete a project record from the database
-  return null;
+  return prisma.project.delete({ where: { id } });
+}
+
+export async function reorderProjects(order: string[]) {
+  const updates = order.map((id, idx) =>
+    prisma.project.update({ where: { id }, data: { order: idx } })
+  );
+  return prisma.$transaction(updates);
 }

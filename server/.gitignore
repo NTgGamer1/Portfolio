@@ -25,3 +25,6 @@ yarn.lock
 
 # Lock files
 *.lock
+ 
+# Ignore generated JS from prisma seed/other scripts
+prisma/*.js

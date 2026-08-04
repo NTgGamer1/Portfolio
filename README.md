@@ -121,14 +121,14 @@ Portfolio/
 - [x] Project Planning
 - [x] Vision Document
 - [x] Product Requirements Document (PRD)
-- [ ] System Architecture
-- [ ] Database Design
+- [x] System Architecture
+- [x] Database Design
 - [ ] UI / UX Design
 - [ ] Design System
+- [x] Backend Development (auth + projects module complete; other admin modules scaffolded)
+- [x] Authentication
 - [ ] Frontend Development
-- [ ] Backend Development
-- [ ] Authentication
-- [ ] Admin Dashboard
+- [ ] Admin Dashboard (UI)
 - [ ] Testing & Optimization
 - [ ] Deployment
 
@@ -141,6 +141,8 @@ This repository originally hosted the first version of my personal portfolio.
 Instead of continuing to improve that implementation, I decided to start over with a completely new architecture, modern technologies, and a better engineering approach.
 
 The previous version remains part of this repository's Git history, while the current branch represents the beginning of **Project 001**—a complete rebuild from the ground up.
+
+> Backend auth and Projects CRUD module verified end-to-end; other admin content modules (Skills, Certifications, Education, Experience, Contact, SEO, Settings) are scaffolded but not yet implemented.
 
 ---
 

@@ -1,0 +1,133 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+}
+
+enum Theme {
+  DARK
+  LIGHT
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         Role     @default(ADMIN)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Hero {
+  id          String   @id @default(cuid())
+  title       String
+  subtitle    String
+  ctaText     String?
+  ctaUrl      String?
+  show        Boolean  @default(true)
+  updatedAt   DateTime @updatedAt
+}
+
+model Project {
+  id               String   @id @default(cuid())
+  title            String
+  slug             String   @unique
+  description      String
+  shortDescription String
+  url              String?
+  repoUrl          String?
+  techStack        String[]
+  imageUrl         String?
+  featured         Boolean  @default(false)
+  visible          Boolean  @default(true)
+  order            Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Skill {
+  id        String   @id @default(cuid())
+  name      String
+  level     String?
+  category  String?
+  visible   Boolean  @default(true)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Certification {
+  id          String   @id @default(cuid())
+  name        String
+  issuer      String
+  issueDate   DateTime
+  url         String?
+  visible     Boolean  @default(true)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Education {
+  id          String   @id @default(cuid())
+  institution String
+  degree      String
+  field       String
+  startDate   DateTime
+  endDate     DateTime?
+  description String?
+  visible     Boolean  @default(true)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Experience {
+  id               String   @id @default(cuid())
+  company          String
+  title            String
+  startDate        DateTime
+  endDate          DateTime?
+  location         String?
+  responsibilities String?
+  visible          Boolean  @default(true)
+  order            Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model SeoSetting {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  imageUrl    String?
+  keywords    String[]
+  updatedAt   DateTime @updatedAt
+}
+
+model SiteSetting {
+  id        String   @id @default(cuid())
+  authors   String[]
+  siteUrl   String
+  theme     Theme    @default(DARK)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

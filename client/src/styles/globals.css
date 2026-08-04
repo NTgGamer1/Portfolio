@@ -1,0 +1,4 @@
+/* Global stylesheet for Project 001 client, loaded by main.tsx */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

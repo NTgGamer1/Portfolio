@@ -6,8 +6,14 @@ export interface AuthRequest extends Request {
   user?: { id: string; email: string; role: string };
 }
 
-export function authMiddleware(req: AuthRequest, res: Response, next: NextFunction) {
-  const token = req.cookies?.token ?? req.headers["authorization"]?.toString().replace(/^Bearer\s+/i, "");
+export function authMiddleware(
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction,
+) {
+  const token =
+    req.cookies?.token ??
+    req.headers["authorization"]?.toString().replace(/^Bearer\s+/i, "");
 
   if (!token) {
     return res.status(401).json({ message: "Authentication required" });

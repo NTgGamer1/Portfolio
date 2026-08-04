@@ -8,7 +8,11 @@ import {
   reorderProjectList as svcReorderProjectList,
 } from "../services/project.service";
 
-export async function getProjects(req: Request, res: Response, next: NextFunction) {
+export async function getProjects(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   try {
     const items = await svcListProjects();
     res.json(items);
@@ -17,7 +21,11 @@ export async function getProjects(req: Request, res: Response, next: NextFunctio
   }
 }
 
-export async function getProject(req: Request, res: Response, next: NextFunction) {
+export async function getProject(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   try {
     const id = req.params.id || req.params.slug;
     const item = await svcFindProjectByIdOrSlug(id);
@@ -28,7 +36,11 @@ export async function getProject(req: Request, res: Response, next: NextFunction
   }
 }
 
-export async function createProject(req: Request, res: Response, next: NextFunction) {
+export async function createProject(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   try {
     const created = await svcCreateProject(req.body);
     res.status(201).json(created);
@@ -37,7 +49,11 @@ export async function createProject(req: Request, res: Response, next: NextFunct
   }
 }
 
-export async function updateProject(req: Request, res: Response, next: NextFunction) {
+export async function updateProject(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   try {
     const updated = await svcUpdateProject(req.params.id, req.body);
     res.json(updated);
@@ -46,7 +62,11 @@ export async function updateProject(req: Request, res: Response, next: NextFunct
   }
 }
 
-export async function deleteProject(req: Request, res: Response, next: NextFunction) {
+export async function deleteProject(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   try {
     await svcRemoveProject(req.params.id);
     res.json({ message: "Deleted" });
@@ -55,7 +75,11 @@ export async function deleteProject(req: Request, res: Response, next: NextFunct
   }
 }
 
-export async function reorderProjects(req: Request, res: Response, next: NextFunction) {
+export async function reorderProjects(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   try {
     const { order } = req.body;
     const result = await svcReorderProjectList(order);

@@ -1,5 +1,8 @@
 import { z } from "zod";
-import { ProjectCreateRequest, ProjectUpdateRequest } from "../types/project.types";
+import {
+  ProjectCreateRequest,
+  ProjectUpdateRequest,
+} from "../types/project.types";
 import {
   getAllProjects,
   getProjectById,
@@ -51,4 +54,3 @@ export async function removeProject(id: string) {
 export async function reorderProjectList(order: string[]) {
   return reorderProjects(order);
 }
-

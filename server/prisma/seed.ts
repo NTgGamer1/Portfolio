@@ -37,7 +37,8 @@ async function main() {
       title: "Project 001",
       slug: "project-001",
       description: "A full-stack portfolio platform built for modern creators.",
-      shortDescription: "Clean architecture, admin dashboard, and public portfolio pages.",
+      shortDescription:
+        "Clean architecture, admin dashboard, and public portfolio pages.",
       techStack: ["React", "Express", "PostgreSQL", "Prisma"],
       imageUrl: "",
       url: "",
@@ -116,7 +117,8 @@ async function main() {
     create: {
       id: "seo-default",
       title: "Project 001 Portfolio",
-      description: "A modern portfolio platform with admin control and public showcase.",
+      description:
+        "A modern portfolio platform with admin control and public showcase.",
       keywords: ["portfolio", "developer", "project 001"],
     },
   });

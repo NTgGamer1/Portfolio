@@ -26,7 +26,7 @@ export async function deleteProjectRecord(id: string) {
 
 export async function reorderProjects(order: string[]) {
   const updates = order.map((id, idx) =>
-    prisma.project.update({ where: { id }, data: { order: idx } })
+    prisma.project.update({ where: { id }, data: { order: idx } }),
   );
   return prisma.$transaction(updates);
 }

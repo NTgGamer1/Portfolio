@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing the journey from gaming roots to software development. Built with vanilla technologies to stay lightweight and fast.
 
-**Live Site:** [ntg-portfolio.vercel.app](https://ntg-portfolio.vercel.app)
+**Live Site:** [ntggamer1.me](https://ntggamer1.me)
 
 ## About
 
@@ -75,6 +75,7 @@ Portfolio/
 - **2048 Game Clone**: Classic puzzle game with touch controls
 - **Weather Dashboard**: Real-time weather with API integration
 - **CLI Password Manager**: Secure credential management tool
+- **Memory Decay**: Retention-tracking web app by Team Neosis; 2nd place in the first-year category at ManthanKriti 2k26
 
 ## Philosophy
 
@@ -84,7 +85,7 @@ Built to demonstrate real skills and genuine projects, not just templates. Every
 
 - **GitHub**: [@NTgGamer1](https://github.com/NTgGamer1)
 - **Instagram**: [@ntg.builds](https://www.instagram.com/ntg.builds)
-- **Live Site**: [ntg-portfolio.vercel.app](https://ntg-portfolio.vercel.app)
+- **Live Site**: [ntggamer1.me](https://ntggamer1.me)
 
 ---
 
